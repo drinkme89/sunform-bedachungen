@@ -235,6 +235,15 @@
   .dd-link .tx b{display:block; font-size:.9rem;}
   .dd-link .tx span{font-size:.79rem; color:var(--ink-soft);}
 
+  .nav-scrim{
+    position:fixed; inset:0; z-index:39;
+    background:color-mix(in srgb, var(--ink) 45%, transparent);
+    backdrop-filter:blur(2px);
+    opacity:0; pointer-events:none;
+    transition:opacity .2s ease;
+  }
+  .nav-scrim.open{opacity:1; pointer-events:auto;}
+
   /* mobile menu */
   .mobile-menu{
     display:none; position:absolute; left:0; right:0; top:calc(100% + 10px);
@@ -788,6 +797,7 @@
     </div>
   </div>
 </nav>
+<div class="nav-scrim" id="navScrim"></div>
 
 <script>
 (function(){
@@ -852,6 +862,7 @@
   var dropdown = document.getElementById('navDropdown');
   var panel = document.getElementById('navDropdownPanel');
   var openKey = null;
+  var navScrim = document.getElementById('navScrim');
 
   function panelHtml(key){
     return menus[key].map(function(item){
@@ -865,6 +876,7 @@
   function closeDesktop(){
     openKey = null;
     dropdown.classList.remove('open');
+    navScrim.classList.remove('open');
     pillItems.forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-expanded','false'); });
   }
 
@@ -876,6 +888,7 @@
       openKey = key;
       panel.innerHTML = panelHtml(key);
       dropdown.classList.add('open');
+      navScrim.classList.add('open');
       pillItems.forEach(function(b){
         var on = b === btn;
         b.classList.toggle('active', on);
@@ -910,6 +923,7 @@
 
   function closeMobile(){
     mobileMenu.classList.remove('open');
+    navScrim.classList.remove('open');
     burger.classList.remove('active');
     burger.setAttribute('aria-expanded','false');
   }
@@ -932,6 +946,7 @@
         b.addEventListener('click', closeMobile);
       });
       mobileMenu.classList.add('open');
+      navScrim.classList.add('open');
       burger.classList.add('active');
       burger.setAttribute('aria-expanded','true');
     } else {
