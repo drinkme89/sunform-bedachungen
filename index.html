@@ -542,6 +542,21 @@
   .benefit h3{font-size:1.2rem;}
   .benefit p{color:var(--ink-soft); font-size:.95rem; margin:0;}
 
+  .suppliers{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  }
+  @media (max-width:980px){ .suppliers{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:560px){ .suppliers{grid-template-columns:repeat(2,1fr);} }
+  .supplier-card{
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    background:var(--surface); padding:1.9rem 1.2rem; min-height:96px;
+    text-decoration:none; color:var(--ink-soft);
+    font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:1.05rem; letter-spacing:-.01em;
+    transition:color .2s ease, background .2s ease;
+  }
+  .supplier-card:hover, .supplier-card:focus-visible{color:var(--sun-deep); background:var(--sun-tint);}
+
   .calc-wrap{display:grid; grid-template-columns:.9fr 1.1fr; gap:3rem; align-items:center;}
   @media (max-width:900px){ .calc-wrap{grid-template-columns:1fr;} }
   .calc-card{
@@ -1348,6 +1363,29 @@
         <h3>Service danach</h3>
         <p>Monitoring-App, Wartung und Ansprechpartner &uuml;ber die gesamte Laufzeit.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="lieferanten">
+  <div class="container">
+    <div class="section-head reveal" style="max-width:680px; margin-left:auto; margin-right:auto; text-align:center;">
+      <p class="eyebrow">Unsere Partner</p>
+      <h2>Einige unserer Lieferanten</h2>
+      <p>Qualit&auml;t und Vielfalt &ndash; unsere Lieferantenwahl f&uuml;r Module, Speicher, Montage und Elektrokomponenten.</p>
+    </div>
+    <div class="suppliers reveal-stagger">
+      <a class="supplier-card" href="https://aikosolar.com/en/" target="_blank" rel="noopener">AIKO</a>
+      <a class="supplier-card" href="https://en.goodwe.com/" target="_blank" rel="noopener">GoodWe</a>
+      <a class="supplier-card" href="https://k2-systems.com/en/" target="_blank" rel="noopener">K2 Systems</a>
+      <a class="supplier-card" href="https://www.jasolar.com/html/en/" target="_blank" rel="noopener">JA Solar</a>
+      <a class="supplier-card" href="https://en.growatt.com/" target="_blank" rel="noopener">Growatt</a>
+      <a class="supplier-card" href="https://www.solaredge.com/en" target="_blank" rel="noopener">SolarEdge</a>
+      <a class="supplier-card" href="https://solar.huawei.com/en/" target="_blank" rel="noopener">Huawei</a>
+      <a class="supplier-card" href="https://www.weidmueller.com/int/index.jsp" target="_blank" rel="noopener">Weidm&uuml;ller</a>
+      <a class="supplier-card" href="https://www.staubli.com/global/en/electrical-connectors.html" target="_blank" rel="noopener">St&auml;ubli</a>
+      <a class="supplier-card" href="https://enphase.com/" target="_blank" rel="noopener">Enphase</a>
+      <a class="supplier-card" href="https://www.helukabel.com/" target="_blank" rel="noopener">Helukabel</a>
     </div>
   </div>
 </section>
